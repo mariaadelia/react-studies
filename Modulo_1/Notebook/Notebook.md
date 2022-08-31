@@ -48,24 +48,101 @@
   
   - **pasta src** - onde está a nossa estrutura de código (pasta principal)
     
-    - **app.tsx** - é onde temos o código que é mostrado
+    - **app.tsx** - é onde temos o código que é mostrado (aqui colocamos nossos componentes e tudo mais)
     
     - **index.css** - onde tem os arquivos de reset
     
-    - **index.tsx** - onde é renderizado o noso código (bem como no Angular mesmo)
+    - **index.tsx** - onde é renderizado o nosso código (bem como no Angular mesmo)
     
     - **react-app-env.d.ts** - arquivos de descrição que são usados pelo Typescript
     
     - **reportWebVitals.ts** - um pacote trazido pelo create react
     
     - **setupTests.ts** - configuração de teste
+  
+  - **pasta public**
+    
+    - **index html** - onde tem o html da página (onde coloca o título da página e tudo mais)
 
 
 
-Ex: retirar o que não for usado (.css .test.tsx .svg .reportVitals e o setup) e escrever o nosso amado hello world
+## Componentização
+
+- É boa prática criar uma página chamada *Components* para que saibamos onde estão os nossos componentes (essa pasta fica dentro da pasta **src**), dentro dessa pasta fazemos uma pasta para cada *component* e nomeamos o arquivo de **index.tsx**
+
+- A classe criada para um componente deve estender do **React.Component** e deve importar o React
+  
+  - O nome do componente sempre deve **começar com letra maiúscula** isso porque o *web-component* é com letra minúscula (dessa forma ele consegue diferenciar as tags criadas e do web-component)
+  
+  - ```typescript
+    import React from 'react';
+    
+    class NomeDaClasse extends React.Component{}
+    ```
+  
+  - A classe **Component** tem uma função obrigatória, a função **render**. Por isso, dentro da classe precisa adicionar essa função
+    
+    - ```typescript
+      import React from 'react';
+      
+      class NomeDaClasse extends React.Component{
+          render(){
+          
+          }
+      }
+      ```
+    
+    - Dentro da função **render** tem um *return* que tem um html em que podemos escrever *javascript* (chamado de *jsx*) dentro dele (ou seja, retornamos o *JSX* que precisamos para criar o componente)
+      
+      - ```typescript
+        return(
+            //html aqui
+        )
+        ```
+    
+    - É importante exportar a classe ao final
+      
+      - ```typescript
+        export default NomeDaClasse;
+        ```
+    
+    - Classe completa
+      
+      - ```typescript
+        import React from 'react';
+        
+        class NomeDaClasse extends React.Component{
+            render(){
+                return(
+                    <htmlTag>
+                        xxxxxx
+                    </htmlTag>
+                )
+            }
+        }
+        export default NomeDaClasse;
+        ```
+
+- Para que o componente apareça, temos que coloca-los na classe **app.tsx**, para fazer isso, precisamos colocar o nome da classe que tem o componente como uma tag
+  
+  - ```html
+    <NomeDaClasse />
+    ```
+
+- Para utilizar o componente criado dentro de outra classe, é só colocar a tag dentro da classe que quero (como fiz com no *app.tsx*)
+
+- **htmlFor**
+  
+  - Devolve o valor for do atributo de um rótulo ou seja quando coloco htmlFor = "nome", esse nome tem que ser o nome que coloquei no id 
 
 
 
 
+
+
+
+
+
+Exercício: criar a pasta formulario, criar o arquivo index.tsx, cria tag form, duas divs, nelas com label(htmlFor do name do input) e um input(um type text outro type time, name e id = tarefa, placeholder= do que quero estudar e required) e colocar a tag Botao ali dentro
 
 
