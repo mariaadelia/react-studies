@@ -1,12 +1,13 @@
 import React from 'react';
-import Botao from './components/Button';
+import Formulario from './components/Formulary';
+import Lista from './components/List';
 
 
 function App() {
   return (
-    <div className="App">
-      <a>Hello World!</a>
-      <Botao/>
+    <div className="App">     
+      <Formulario/>
+      <Lista/>
     </div>
   );
 }

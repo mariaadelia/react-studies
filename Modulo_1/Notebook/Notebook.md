@@ -64,8 +64,6 @@
     
     - **index html** - onde tem o html da página (onde coloca o título da página e tudo mais)
 
-
-
 ## Componentização
 
 - É boa prática criar uma página chamada *Components* para que saibamos onde estão os nossos componentes (essa pasta fica dentro da pasta **src**), dentro dessa pasta fazemos uma pasta para cada *component* e nomeamos o arquivo de **index.tsx**
@@ -74,20 +72,41 @@
   
   - O nome do componente sempre deve **começar com letra maiúscula** isso porque o *web-component* é com letra minúscula (dessa forma ele consegue diferenciar as tags criadas e do web-component)
   
-  - ```typescript
-    import React from 'react';
+  - **Maneira antiga**
     
-    class NomeDaClasse extends React.Component{}
-    ```
+    - ```typescript
+      import React from 'react';
+      
+      class NomeDaClasse extends React.Component{}
+      ```
+    
+    - Antigamente era preciso usar como classe para que tivéssemos state components (componentes que tivessem estados dentro), porém após a nova versão, não é necessário essa diferenciação (está ficando em desuso)
   
-  - A classe **Component** tem uma função obrigatória, a função **render**. Por isso, dentro da classe precisa adicionar essa função
+  - **Maneira nova**
+    
+    - ```typescript
+      import react from 'react';
+      
+      
+      function NomeDaFuncao(){
+          //Precisa do 'return'
+          return(
+              //<html aqui>
+          )
+      }
+      export default NomeDaFuncao;
+      ```
+    
+    - Nesse caso ele aceita tanto stateless quanto com estado, e sempre é necessário colocar o export
+  
+  - A classe **Component** (ou seja, o método antigo)tem uma função obrigatória, a função **render**. Por isso, dentro da classe precisa adicionar essa função
     
     - ```typescript
       import React from 'react';
       
       class NomeDaClasse extends React.Component{
           render(){
-          
+      
           }
       }
       ```
@@ -133,16 +152,38 @@
 
 - **htmlFor**
   
-  - Devolve o valor for do atributo de um rótulo ou seja quando coloco htmlFor = "nome", esse nome tem que ser o nome que coloquei no id 
+  - Defini ou retoma o valor do atributo for de um elemento <label>, quando coloco htmlFor = "nome", esse nome tem que ser o nome que coloquei no id do atributo que quero que tenha o foco (dessa forma, se clico nesse label ele vai direcionar para o input)
+
+## Array
+
+- ```typescript
+  const nomeDoArray = [{
+      array1Atributo1: 'Valor atributo 1',
+      array1Atributo2: 'Valor atributo 2'
+      },{
+      array2Atributo1: 'Valor atributo 1',
+      array2Atributo2: 'Valor atributo 2'
+  }]
+  
+  
+  //Exemplo
+  const tarefas = [{
+      tarefa: 'Estudar',
+      tempo: '02:00:00'
+      },{
+      tarefa: 'Trabalhar',
+      tempo: '08:00:00'
+  }]
+  ```
+
+- ### Renderização dinâmica de Arrays
+  
+  - f
 
 
 
 
 
-
-
-
-
-Exercício: criar a pasta formulario, criar o arquivo index.tsx, cria tag form, duas divs, nelas com label(htmlFor do name do input) e um input(um type text outro type time, name e id = tarefa, placeholder= do que quero estudar e required) e colocar a tag Botao ali dentro
+Exercício: criar componente lista (com o function), aside, um h2 como o titulo, ul, 2 li's com 1 h3 (nome da tarefa) e 1 span(tempo da tarefa), renderiza a lista (ou seja, coloca lá no app.tsx)
 
 
